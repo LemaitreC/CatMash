@@ -1,5 +1,6 @@
 let express = require('express')
 let path = require('path')
+var mongoose = require('mongoose')
 
 let app = express()
 
@@ -18,5 +19,10 @@ app.get('/', (req, res) => {
     });
 
 })
+
+//Connection avec la base de données mlab
+mongoose.connect('mongodb://user1:password@ds131510.mlab.com:31510/catmash');
+
+
 
 app.listen(3001)
