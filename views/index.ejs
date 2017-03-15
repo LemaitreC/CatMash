@@ -2,11 +2,48 @@
 <html>
 
 <head>
-    <title><%= title %></title>
+    <meta charset="UTF-8">
+
+    <title>
+        <%= titre %>
+    </title>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
-    <h1>Test</h1>
+    
+    <header>
+        <h1>CatMash</h1>
+        <p>Quel est le chat le plus mignon ?</p>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 gauche">
+                <img class="img-responsive" src="http://25.media.tumblr.com/Jjkybd3nSfqigafwIsenIB0Uo1_500.jpg">
+            </div>
+            <div class="col-md-6 droite">
+                <img class="img-responsive" src="http://25.media.tumblr.com/tumblr_m3mt40gWvc1r73wdao1_500.jpg">
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <h2>Score de ces chats</h2>
+    </footer>
+    
 </body>
 
 </html>
