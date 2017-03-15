@@ -1,6 +1,7 @@
 let express = require('express')
 let path = require('path')
 var mongoose = require('mongoose')
+let fs = require('fs')
 
 let app = express()
 
@@ -23,6 +24,9 @@ app.get('/', (req, res) => {
 //Connection avec la base de données mlab
 mongoose.connect('mongodb://user1:password@ds131510.mlab.com:31510/catmash');
 
-
+//Obtenir la liste des chats 
+app.get('/chats',(req,res)=>{
+    res.send(JSON.parse(fs.readFileSync('public/data/chat.json', 'utf8')))
+})
 
 app.listen(3001)
