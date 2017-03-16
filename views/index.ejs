@@ -22,7 +22,9 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 
-<body>
+<script src="javascripts/main.js"></script>
+
+<body onload="initTwoRamdomCats()">
 
     <header>
         <h1>CatMash</h1>
@@ -31,7 +33,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 gauche" >
+            <div class="col-md-6 gauche">
                 <img class="img-responsive" id="gauche" src="">
             </div>
             <div class="col-md-6 droite">
@@ -45,19 +47,5 @@
     </footer>
 
 </body>
-
-<script>
-    $.ajax({ //Affiche aléatoirement deux chats
-        type: "GET",
-        url: "/chats"
-    }).done(function(data) {
-        console.log(data[1].url)
-        $("#gauche").attr('src',data[0].url)
-        $("#droite").attr('src',data[1].url)
-    }).fail(function(req, text_status, err) {
-        console.log(err);
-        alert("Impossible d'obtenir la liste des chats : "+ err);
-    });
-</script>
 
 </html>
