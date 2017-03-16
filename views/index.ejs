@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    
+
     <header>
         <h1>CatMash</h1>
         <p>Quel est le chat le plus mignon ?</p>
@@ -31,19 +31,33 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 gauche">
-                <img class="img-responsive" src="http://25.media.tumblr.com/Jjkybd3nSfqigafwIsenIB0Uo1_500.jpg">
+            <div class="col-md-6 gauche" >
+                <img class="img-responsive" id="gauche" src="http://25.media.tumblr.com/Jjkybd3nSfqigafwIsenIB0Uo1_500.jpg">
             </div>
             <div class="col-md-6 droite">
-                <img class="img-responsive" src="http://25.media.tumblr.com/tumblr_m3mt40gWvc1r73wdao1_500.jpg">
+                <img class="img-responsive" id="droite" src="http://25.media.tumblr.com/tumblr_m3mt40gWvc1r73wdao1_500.jpg">
             </div>
         </div>
     </div>
-    
+
     <footer>
         <h2>Score de ces chats</h2>
     </footer>
-    
+
 </body>
+
+<script>
+    $.ajax({ //Affiche aléatoirement deux chats
+        type: "GET",
+        url: "/chats"
+    }).done(function(data) {
+        console.log(data[1].url)
+        $("#gauche").attr('src',data[0].url)
+        $("#droite").attr('src',data[1].url)
+    }).fail(function(req, text_status, err) {
+        console.log(err);
+        alert("Impossible d'obtenir la liste des chats : "+ err);
+    });
+</script>
 
 </html>
