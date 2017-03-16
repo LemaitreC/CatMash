@@ -15,8 +15,8 @@ h1 {
     margin: 0;
 }
 
-h2{
-    margin:0;
+h2 {
+    margin: 0;
     padding: 20px;
     text-align: center;
     font-size: 25px;
@@ -57,12 +57,14 @@ header {
     border-radius: 80px;
     margin: auto;
     vertical-align: middle;
+    max-height: 400px;
+    max-width: 400px;
 }
 
 footer {
     background-color: brown;
 }
 
-footer:hover{
+footer:hover {
     background-color: darkred;
 }
