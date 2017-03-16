@@ -23,5 +23,8 @@
     "fs": "0.0.1-security",
     "mongoose": "^4.9.0",
     "nodemon": "^1.11.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.1"
   }
 }
