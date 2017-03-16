@@ -1,5 +1,6 @@
 body {
     text-align: center;
+    color: #fff;
 }
 
 p {
@@ -23,32 +24,26 @@ h2 {
     font-weight: 600;
 }
 
-header {
-    background-color: brown;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.04);
-}
-
 .row {
     height: inherit;
 }
 
 .col-md-6 {
-    min-height: 500px;
+    height:90vh;
     display: flex;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.04);
 }
 
-.col-md-6:hover,
 .img-responsive:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .gauche {
-    background-color: azure;
+    background-color: rgba(200, 192, 216, 0.43);
 }
 
 .droite {
-    background-color: lightgray;
+    background-color: rgba(225, 233, 192, 0.26);
 }
 
 .img-responsive {
@@ -62,9 +57,10 @@ header {
 }
 
 footer {
-    background-color: brown;
+    height:10vh;
+    background-color: rgba(86, 184, 192, 0.76);;
 }
 
 footer:hover {
-    background-color: darkred;
+    background-color: rgba(86, 184, 192, 0.9);;
 }

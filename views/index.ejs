@@ -25,22 +25,19 @@
 <script src="javascripts/main.js"></script>
 
 <body onload="initTwoRamdomCats()">
-
-    <header>
-        <h1>CatMash</h1>
-        <p>Quel est le chat le plus mignon ?</p>
-    </header>
-
+    
+    
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 gauche">
-                <img class="img-responsive" id="gauche" src="">
+                <img onclick="voteCat()" class="img-responsive" id="gauche" src="">
             </div>
             <div class="col-md-6 droite">
-                <img class="img-responsive" id="droite" src="">
+                <img onclick="voteCat()" class="img-responsive" id="droite" src="">
             </div>
         </div>
     </div>
+    <div></div>
 
     <footer>
         <h2>Score de ces chats</h2>
