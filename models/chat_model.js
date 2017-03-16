@@ -1,6 +1,6 @@
 let mongoose = require('mongoose')
 
-Schema = mongoose.Schema; //Création du Schema d'un utilisateur
+Schema = mongoose.Schema; //Création du Schema d'un chat
 let chatSchema = new Schema({
     id: String,
     url: String,

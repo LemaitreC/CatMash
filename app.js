@@ -8,6 +8,9 @@ let app = express()
 //Connection avec la base de données mlab
 mongoose.connect('mongodb://user1:password@ds131510.mlab.com:31510/catmash')
 
+//On récupère le model pour les chats 
+require('./models/chat_model')
+
 // Moteur de Templates / modèles EJS 
 app.set('view engine', 'ejs')
 
