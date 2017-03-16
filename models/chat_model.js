@@ -1,12 +1,14 @@
-let mongoose = require('mongoose')
+'use strict'
 
-Schema = mongoose.Schema; //Création du Schema d'un chat
-let chatSchema = new Schema({
-    id: String,
-    url: String,
-    score: Number
+const mongoose = require('mongoose')
+
+const Schema = mongoose.Schema //Création du Schema d'un chat
+const chatSchema = new Schema({
+	id: String,
+	url: String,
+	score: Number
 })
 
-let chat = mongoose.model('chat', chatSchema)
+const chat = mongoose.model('chat', chatSchema)
 
 module.exports = chat
