@@ -18,8 +18,9 @@ function initTwoRamdomCats() {
             },
             error: function () {
                 //Sinon on affiche l'image indiquant que l'image n'a pas été trouvé
-                $('#gauche').attr('src', '../images/image_not_found.png')
-                $('#gauche').attr('title', '000000')
+//                $('#gauche').attr('src', '../images/image_not_found.png')
+//                $('#gauche').attr('title', '000000')
+                window.location.reload()
             }
         })
 
@@ -34,8 +35,9 @@ function initTwoRamdomCats() {
             },
             error: function () {
                 //Sinon on affiche l'image indiquant que l'image n'a pas été trouvé
-                $('#droite').attr('src', '../images/image_not_found.png')
-                $('#droite').attr('title', '000000')
+//                $('#droite').attr('src', '../images/image_not_found.png')
+//                $('#droite').attr('title', '000000')
+                window.location.reload()
             }
         })
     }).fail(function (req, text_status, err) {
