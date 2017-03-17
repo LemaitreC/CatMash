@@ -43,4 +43,30 @@ describe('** APP **', function () {
         
     })
     
+    describe('~ Resultats ~', function () {
+
+        it("Get page : returns status code 200", function (done) {
+
+            request.get('http://localhost:3001/resultats/', function (err, res, body) {
+                expect(res.statusCode).toBe(200)
+                done()
+            })
+
+        })
+        
+        it("should return the results of the votes", function (done) {
+
+            request.get('http://localhost:3001/resultats/votes/', function (err, res, body) {
+                expect(res.statusCode).toBe(200)
+                console.log(JSON.parse(res.body).length)
+                expect(JSON.parse(res.body).length).toBeGreaterThan(50)
+                done()
+            })
+
+        })
+
+       
+        
+    })
+    
 })
