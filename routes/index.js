@@ -43,7 +43,7 @@ router.get('/vote', (req, res) => {
 
     //Si l'url correspond  à une image  non trouvée on rafriachit la page sans rien enregistrer  
     if(url==='../images/image_not_found.png'){
-        return res.status(500).redirect('/')
+        return res.redirect('/')
     }
     
     //Si l'url du chat est valide  
