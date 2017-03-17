@@ -17,12 +17,15 @@ require('./models/chat_model')
 // Moteur de Templates / modèles EJS
 app.set('view engine', 'ejs')
 
+//On récupère les différents chemins /routes
 const index = require('./routes/index')
+const resultats= require('./routes/resultats')
 
 
 // Fixation des fichiers statiques
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', index)
+app.use('/resultats', resultats)
 
 app.listen(port)
