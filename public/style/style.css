@@ -60,6 +60,9 @@ h2 {
     max-height: 400px;
     max-width: 400px;
 }
+.img-responsive:hover{
+ cursor:  pointer;
+}
 footer {
     height: 10vh;
     background-color: rgba(86, 184, 192, 0.76);
