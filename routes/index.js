@@ -11,7 +11,7 @@ const chat = mongoose.model('chat')
 // Renvoie la page de vote / page d'accueil
 router.get('/', (req, res) => {
 
-    res.render('index', {
+    res.status(200).render('index', {
         titre: 'Vote - CatMash'
     })
 
@@ -32,7 +32,7 @@ router.get('/chats', (req, res) => {
 
     chats.push(listeChats.images[chatUn], listeChats.images[chatDeux])
 
-    res.send(chats)
+    res.status(200).send(chats)
 })
 
 //Publier un vote dans la base de données
@@ -43,7 +43,7 @@ router.get('/vote', (req, res) => {
 
     //Si l'url correspond  à une image  non trouvée on rafriachit la page sans rien enregistrer  
     if(url==='../images/image_not_found.png'){
-        return res.redirect('/')
+        return res.status(500).redirect('/')
     }
     
     //Si l'url du chat est valide  

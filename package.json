@@ -4,8 +4,8 @@
   "description": "Trouver le chat le plus mignon",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "test": "jasmine-node spec --color --verbose --noStack --autotest --watch ."
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,8 @@
     "nodemon": "^1.11.0"
   },
   "devDependencies": {
-    "eslint": "^3.17.1"
+    "eslint": "^3.17.1",
+    "jasmine-node": "^1.14.5",
+    "request": "^2.81.0"
   }
 }
