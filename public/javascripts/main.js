@@ -61,9 +61,6 @@ function voteCat(position) {
 		},
 		success: function() {
 			initTwoRamdomCats()
-		},
-		error: function() {
-			console.log('error')
 		}
 	})
 }

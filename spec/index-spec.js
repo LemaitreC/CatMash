@@ -69,7 +69,6 @@ describe('** APP **', function() {
 
 				expect(err).toEqual(null)
 				expect(res.statusCode).toBe(statusOK)
-				console.log(JSON.parse(res.body).length)
 				expect(JSON.parse(res.body).length).toBeGreaterThan(cats)
 				done()
 			})

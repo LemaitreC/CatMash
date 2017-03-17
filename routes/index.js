@@ -76,7 +76,6 @@ router.get('/vote', (req, res) => {
 					console.log(err)
 					return res.status(statusHTTP.serverError).send(err)
 				}
-				console.log(savedChat)
 				return res.redirect('/')
 			})
 
