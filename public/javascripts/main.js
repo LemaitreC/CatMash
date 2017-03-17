@@ -2,6 +2,10 @@
 
 //Méthode récupérant les images si elles existent
 function initTwoRamdomCats() {
+    //On réinitialise les opacité des deux coté
+     document.getElementById("droite").style.opacity=1;
+     document.getElementById("gauche").style.opacity=1;
+    
     $.ajax({
         type: 'GET',
         url: '/chats'
@@ -49,10 +53,20 @@ function initTwoRamdomCats() {
 
 //Méthode ajoutant un vote au chat
 function voteChat(position) {
+    //on récupère l'id et l'url du chat selectionné
     const idChat = document.getElementById(position).getAttribute('title')
     const urlChat = document.getElementById(position).getAttribute('src')
-
-    $.ajax({
+    
+    //On change l'opacité du chat non selectionné
+    if(position==="droite"){
+        document.getElementById("gauche").style.opacity=0.1;
+    }
+    else{
+        document.getElementById("droite").style.opacity=0.1;
+    }
+    
+    //On envoie ces données dans la BD
+   $.ajax({
         type: 'GET',
         url: 'vote',
         data: {
@@ -60,7 +74,7 @@ function voteChat(position) {
             url: urlChat
         },
         success: function () {
-            initTwoRamdomCats()
+             setTimeout(initTwoRamdomCats, 1000)
         }
     })
 }
