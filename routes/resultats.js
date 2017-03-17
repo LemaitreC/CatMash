@@ -17,10 +17,10 @@ router.get('/', (req, res) => {
 
 //Renvoie la liste des score des chats 
 router.get('/votes', (req, res) => {
-    chat.find({}, function(err, data){
+    chat.find({},function(err, data){
         if(err) throw err
         res.send(data)
-    })
+    }).sort({score:-1})
 })
 
 module.exports = router
