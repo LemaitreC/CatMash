@@ -49,11 +49,13 @@ h2 {
 footer {
     height: 10vh;
     background-color: rgba(86, 184, 192, 0.76);
-    ;
+    color: white;
 }
 footer:hover {
     background-color: rgba(86, 184, 192, 0.9);
-    ;
+}
+a:hover {
+    text-decoration: none
 }
 
 /* PAGE RESULTATS */
@@ -99,6 +101,7 @@ footer:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
 }
 .thumbnail p {
+    border-radius: 4px;
     color: #fff;
     background-color: rgba(200, 192, 216, 1);
     width: 50%;
