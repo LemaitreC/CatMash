@@ -65,11 +65,8 @@ describe('** APP **', function() {
 		it('should return the results of the votes', function(done) {
 
 			request.get('http://localhost:3001/resultats/votes/', function(err, res) {
-				const cats = 50
-
 				expect(err).toEqual(null)
 				expect(res.statusCode).toBe(statusOK)
-				expect(JSON.parse(res.body).length).toBeGreaterThan(cats)
 				done()
 			})
 
