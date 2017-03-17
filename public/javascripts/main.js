@@ -2,113 +2,114 @@
 
 //Méthode récupérant les images si elles existent
 function initTwoRamdomCats() {
-    $.ajax({
-        type: 'GET',
-        url: '/chats'
-    }).done(function (data) {
+	$.ajax({
+		type: 'GET',
+		url: '/chats'
+	}).done(function(data) {
 
         //On vérifie si la 1er image possède un url valid
-        $.ajax({
-            type: 'GET',
-            url: data[0].url,
-            success: function () {
+		$.ajax({
+			type: 'GET',
+			url: data[0].url,
+			success: function() {
                 //Si l'image a un url valid alors on l'affiche
-                $('#gauche').attr('src', data[0].url)
-                $('#gauche').attr('title', data[0].id)
-            },
-            error: function () {
+				$('#gauche').attr('src', data[0].url)
+				$('#gauche').attr('title', data[0].id)
+			},
+			error: function() {
                 //Sinon on affiche l'image indiquant que l'image n'a pas été trouvé
 //                $('#gauche').attr('src', '../images/image_not_found.png')
 //                $('#gauche').attr('title', '000000')
-                window.location.reload()
-            }
-        })
+				window.location.reload()
+			}
+		})
 
         //On vérifie si la 2e image possède un url valid
-        $.ajax({
-            type: 'GET',
-            url: data[1].url,
-            success: function () {
+		$.ajax({
+			type: 'GET',
+			url: data[1].url,
+			success: function() {
                 //Si l'image a un url valid alors on l'affiche
-                $('#droite').attr('src', data[1].url)
-                $('#droite').attr('title', data[1].id)
-            },
-            error: function () {
+				$('#droite').attr('src', data[1].url)
+				$('#droite').attr('title', data[1].id)
+			},
+			error: function() {
                 //Sinon on affiche l'image indiquant que l'image n'a pas été trouvé
 //                $('#droite').attr('src', '../images/image_not_found.png')
 //                $('#droite').attr('title', '000000')
-                window.location.reload()
-            }
-        })
-    }).fail(function (req, text_status, err) {
+				window.location.reload()
+			}
+		})
+	}).fail(function(req, text_status, err) {
         //Si il est impossible de récuperer les url des images on renvoi l'erreur et une alerte
-        console.log(err)
-        alert('Impossible d\'obtenir la liste des chats : ' + err)
-    })
+		console.log(err)
+		alert('Impossible d\'obtenir la liste des chats : ' + err)
+	})
 }
 
 //Méthode ajoutant un vote au cat
 function voteCat(position) {
-    const idChat = document.getElementById(position).getAttribute('title')
-    const urlChat = document.getElementById(position).getAttribute('src')
+	const idChat = document.getElementById(position).getAttribute('title')
+	const urlChat = document.getElementById(position).getAttribute('src')
 
-    $.ajax({
-        type: 'GET',
-        url: 'vote',
-        data: {
-            id: idChat,
-            url: urlChat
-        },
-        success: function () {
-            initTwoRamdomCats()
-        },
-        error: function () {
-            console.log('error')
-        }
-    })
+	$.ajax({
+		type: 'GET',
+		url: 'vote',
+		data: {
+			id: idChat,
+			url: urlChat
+		},
+		success: function() {
+			initTwoRamdomCats()
+		},
+		error: function() {
+			console.log('error')
+		}
+	})
 }
 
 //Affiche les resultats des votes
 function displayVote() {
-    $.ajax({
-        type: "GET",
-        url: "/resultats/votes",
-        success: function (data) {
+	$.ajax({
+		type: 'GET',
+		url: '/resultats/votes',
+		success: function(data) {
             //Calcul du nombre total de vote favorable pour ce chat
-            let total = nombreTotalDeVote(data)
-            for (let d in data) {
-                
+			const total = nombreTotalDeVote(data)
+
+			for (const d in data) {
+
                 //Calcul du pourcentage de vote favorable pour ce chat
-                const pourcentage= Math.round((data[d].score / total )*100)
-                
-                //On affiche l'image  du chat et les réslutats 
-                document.getElementById("grid").innerHTML += '<div class="col-sm-3">' +
+				const pourcentage= Math.round(data[d].score / total *100)
+
+                //On affiche l'image  du chat et les réslutats
+				document.getElementById('grid').innerHTML += '<div class="col-sm-3">' +
                     '<div class="thumbnail">' +
                     '<img src="' + data[d].url + '" title="'+data[d].id+'">' +
                     '<div class="caption">' +
-                    
+
                     '<p class="score">'+data[d].score+'</p>'+
                     '<p class="pourcentage">'+ pourcentage+'%</p>' +
                     '</div>' +
                     '</div>' +
-                    '</div>' 
-            }
-        },
-        error: function (err) {
-            console.log(err)
-            alert(err)
-        }
-    })
+                    '</div>'
+			}
+		},
+		error: function(err) {
+			console.log(err)
+			alert(err)
+		}
+	})
 }
 
 
-//Retourne le nombre total de vote  
+//Retourne le nombre total de vote
 function nombreTotalDeVote(data){
-    let total=0
-    
-    for (let d in data) {
-        total += data[d].score
-    }
-    
-    return total
+	let total=0
+
+	for (const d in data) {
+		total += data[d].score
+	}
+
+	return total
 }
