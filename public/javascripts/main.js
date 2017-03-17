@@ -72,13 +72,21 @@ function displayVote() {
         type: "GET",
         url: "/resultats/votes",
         success: function (data) {
+            //Calcul du nombre total de vote favorable pour ce chat
+            let total = nombreTotalDeVote(data)
             for (let d in data) {
-                console.log(data[d])
-                document.getElementById("grid").innerHTML += '<div class="col-sm-2">' +
+                
+                //Calcul du pourcentage de vote favorable pour ce chat
+                const pourcentage= Math.round((data[d].score / total )*100)
+                
+                //On affiche l'image  du chat et les réslutats 
+                document.getElementById("grid").innerHTML += '<div class="col-sm-3">' +
                     '<div class="thumbnail">' +
-                    '<img src="' + data[d].url + '" alt="'+data[d].id+'" style="width:100%">' +
+                    '<img src="' + data[d].url + '" title="'+data[d].id+'">' +
                     '<div class="caption">' +
-                    '<p>'+data[d].score+'</p>' +
+                    
+                    '<p class="score">'+data[d].score+'</p>'+
+                    '<p class="pourcentage">'+ pourcentage+'%</p>' +
                     '</div>' +
                     '</div>' +
                     '</div>' 
@@ -89,4 +97,16 @@ function displayVote() {
             alert(err)
         }
     })
+}
+
+
+//Retourne le nombre total de vote  
+function nombreTotalDeVote(data){
+    let total=0
+    
+    for (let d in data) {
+        total += data[d].score
+    }
+    
+    return total
 }
