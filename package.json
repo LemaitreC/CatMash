@@ -1,32 +1,34 @@
 {
-  "name": "catmash",
-  "version": "1.0.0",
-  "description": "Trouver le chat le plus mignon",
-  "main": "app.js",
-  "scripts": {
-    "start": "nodemon app.js",
-    "test": "jasmine-node spec --color --verbose --noStack --autotest --watch ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LemaitreC/CatMash.git"
-  },
-  "author": "Corentin LEMAITRE",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/LemaitreC/CatMash/issues"
-  },
-  "homepage": "https://github.com/LemaitreC/CatMash#readme",
-  "dependencies": {
-    "ejs": "^2.5.6",
-    "express": "^4.15.2",
-    "fs": "0.0.1-security",
-    "mongoose": "^4.9.0",
-    "nodemon": "^1.11.0"
-  },
-  "devDependencies": {
-    "eslint": "^3.17.1",
-    "jasmine-node": "^1.14.5",
-    "request": "^2.81.0"
-  }
+    "name": "catmash",
+    "version": "1.0.0",
+    "description": "Trouver le chat le plus mignon",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon app.js",
+        "test": "jasmine-node spec --color --verbose --noStack --autotest --watch .",
+        "eslint": "./node_modules/.bin/eslint ./"
+
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/LemaitreC/CatMash.git"
+    },
+    "author": "Corentin LEMAITRE",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/LemaitreC/CatMash/issues"
+    },
+    "homepage": "https://github.com/LemaitreC/CatMash#readme",
+    "dependencies": {
+        "ejs": "^2.5.6",
+        "express": "^4.15.2",
+        "fs": "0.0.1-security",
+        "mongoose": "^4.9.0",
+        "nodemon": "^1.11.0"
+    },
+    "devDependencies": {
+        "eslint": "^3.17.1",
+        "jasmine-node": "^1.14.5",
+        "request": "^2.81.0"
+    }
 }
