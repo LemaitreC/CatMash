@@ -6,8 +6,8 @@
 function initTwoRamdomCats() {
 
     //on met l'icon vs par defaut
-    $('#catImg').attr('src', 'images/vs.png');
-    
+	$('#catImg').attr('src', 'images/vs.png')
+
     //On réinitialise les animations
 	document.getElementById('plusG').className = 'plusOne'
 	document.getElementById('plusD').className = 'plusOne'
@@ -79,8 +79,8 @@ function voteChat(position) {
 		document.getElementById('droite').style.opacity = 0.1
 		$('#plusG').toggleClass('plusOne-active')
 	}
-    //On change l'icon du chat 
-    $('#catImg').attr('src', 'images/cat.png');
+    //On change l'icon du chat
+	$('#catImg').attr('src', 'images/cat.png')
 
     //On envoie ces données dans la BD
 	$.ajax({
