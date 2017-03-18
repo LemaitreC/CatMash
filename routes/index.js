@@ -71,7 +71,7 @@ router.get('/vote', (req, res) => {
 			newChat.score = 1
 
             //On enregistre le chat
-			newChat.save(function(err, savedChat) {
+			newChat.save(function(err) {
 				if (err) {
 					console.log(err)
 					return res.status(statusHTTP.serverError).send(err)
@@ -96,7 +96,12 @@ router.get('/vote', (req, res) => {
 	})
 })
 
-//Retourne un nombre entier aléatoire dans un intervalle fermé
+/**
+ * Méthode retournant un nombre entier aléatoire dans un intervalle fermé
+ * @param   {Number} min - Borne inférieure de l'intervalle.
+ * @param   {Number} max - Borne supérieure de l'intervalle.
+ * @returns {Number} Nombre aléatoire entre les borne inférieure et supérieure (borne incluse)
+ */
 function getRandomIntInclusive(min, max) {
 	min = Math.ceil(min)
 	max = Math.floor(max)
