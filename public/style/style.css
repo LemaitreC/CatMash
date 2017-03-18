@@ -29,7 +29,6 @@ h2 {
 }
 
 .col-md-6 {
-        z-index: 0;
     height: 90vh;
     display: flex;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.04);
@@ -44,23 +43,22 @@ h2 {
 }
 
 .VS {
-    margin: auto;
-    float: right;
-    height: 80px;
-    left: 47.25%;
-    top: 40%;
-    position: absolute;
-    z-index: 5;
+    display: flex;
+    width: 100%;
+    z-index: 10001;
+    height: 80vh;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
 }
 
 .VS img {
-    position: relative;
-    margin: auto;
-    height: 80px;
+    height: 8em;
 }
 
 .plusOne {
-    z-index:2;
+    z-index: 2;
     background: rgba(125, 199, 205, 0.43);
     position: absolute;
     border-radius: 20px;
@@ -74,7 +72,7 @@ h2 {
 }
 
 .plusOne-active {
-    z-index:4;
+    z-index: 4;
     opacity: 1;
     top: 5%;
     -webkit-transition: 1s;
@@ -85,7 +83,7 @@ h2 {
 }
 
 .img-responsive {
-        z-index: 3;
+    z-index: 3;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.04);
     border: 3px solid #222;
     border-radius: 80px;
