@@ -27,7 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', index)
 app.use('/resultats', resultats)
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
+
 app.listen(port, err => {
 	if (err) {
 		console.error(err)
