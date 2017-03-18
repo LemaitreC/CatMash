@@ -4,7 +4,6 @@ const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
 
-const port = 3001
 const app = express()
 
 //Connection avec la base de données mlab
@@ -28,4 +27,11 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', index)
 app.use('/resultats', resultats)
 
-app.listen(port)
+const port = process.env.PORT || 3000
+app.listen(port, err => {
+	if (err) {
+		console.error(err)
+	} else {
+		console.log('App is ready at : ' + port)
+	}
+})
