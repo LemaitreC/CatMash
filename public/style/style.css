@@ -89,8 +89,8 @@ h2 {
     border-radius: 80px;
     margin: auto;
     vertical-align: middle;
-    max-height: 28em;
-    max-width: 28em;
+    max-height: 80%;
+    max-width: 80%;
 }
 
 .img-responsive:hover {
