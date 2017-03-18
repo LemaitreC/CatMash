@@ -1,6 +1,8 @@
 'use strict'
 
-//Méthode récupérant les images si elles existent
+/**
+ * Méthode ajoutant deux chats au html
+ */
 function initTwoRamdomCats() {
 
     //On réinitialise les animations
@@ -11,7 +13,7 @@ function initTwoRamdomCats() {
 	document.getElementById('droite').style.opacity = 1
 	document.getElementById('gauche').style.opacity = 1
 
-
+    //On utilise une requête ajax permettant de récupèrer deux images de chats et leurs id
 	$.ajax({
 		type: 'GET',
 		url: '/chats'
@@ -57,7 +59,10 @@ function initTwoRamdomCats() {
 	})
 }
 
-//Méthode ajoutant un vote au chat
+/**
+ * Méthode ajoutant un vote au chat dans la BD
+ * @param   {String} position - de l'image (Gauche ou Droite) pour svoir sur quel image a cliquer le votant.
+ */
 function voteChat(position) {
     //on récupère l'id et l'url du chat selectionné
 	const idChat = document.getElementById(position).getAttribute('title')
@@ -81,6 +86,7 @@ function voteChat(position) {
 			url: urlChat
 		},
 		success: function() {
+            // On attend une seconde pour effectuer une animation, illustrant à l'utilisateur l'ajout du vote avant de re-générer deux chats
 			setTimeout(function() {
 				initTwoRamdomCats()
 			}, 1000)
@@ -88,8 +94,12 @@ function voteChat(position) {
 	})
 }
 
-//Affiche les resultats des votes
+/**
+ * Méthode Affichant les resultats des votes
+ */
 function displayVote() {
+
+    //On utilise une methode ajax pour obtenir tout les resultats des votes.
 	$.ajax({
 		type: 'GET',
 		url: '/resultats/votes',
@@ -123,7 +133,11 @@ function displayVote() {
 }
 
 
-//Retourne le nombre total de vote
+/**
+ * Methode calculant le nombre de total de vote dans la BD.
+ * @param   {Object} data - L'ensemble des votes enregistrés dans la BD.
+ * @returns {Number} total - Nombre total de vote dans la BD.
+ */
 function nombreTotalDeVote(data) {
 	let total = 0
 
@@ -134,7 +148,10 @@ function nombreTotalDeVote(data) {
 	return total
 }
 
-//Ajout d'un vote lorque l'utilisateur clique sur une des touches directionnelles du clavier
+/**
+ * Méthode appelant la methode voteChat() en fonction de la touche directionnelle utilisée par l'utilisateur.
+ * @param   {object} event - l'évènement.
+ */
 function voteAvecKey(event) {
 
     //On récupère les code des touches directionnelles du clavier
@@ -144,7 +161,6 @@ function voteAvecKey(event) {
 	const key_fleche_gauche = 37
 	const key_fleche_droite = 39
 
-	console.log(key)
 	switch (key) {
 		case key_D:
 		case key_fleche_droite:
